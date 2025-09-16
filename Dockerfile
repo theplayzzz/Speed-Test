@@ -7,4 +7,9 @@ FROM openspeedtest/latest
 # Desabilita Let's Encrypt dentro do container (TLS é do Render)
 ENV ENABLE_LETSENCRYPT=False
 
+# Copia os arquivos do repositório (index.html, hosted.html, assets, etc.)
+# para sobrepor os estáticos da imagem base
+WORKDIR /usr/share/nginx/html
+COPY index.html hosted.html assets ./
+
 

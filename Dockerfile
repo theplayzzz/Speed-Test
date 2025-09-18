@@ -1,15 +1,5 @@
-# Imagem oficial do OpenSpeedTest Server
-FROM openspeedtest/latest
-
-# Render faz o TLS na borda, então mantemos apenas HTTP na porta 3000
-# A imagem já expõe 3000 (HTTP) e 3001 (HTTPS)
-
-# Desabilita Let's Encrypt dentro do container (TLS é do Render)
-ENV ENABLE_LETSENCRYPT=False
-
-# Copia os arquivos do repositório (index.html, hosted.html, assets, etc.)
-# para sobrepor os estáticos da imagem base
-WORKDIR /usr/share/nginx/html
-COPY index.html hosted.html assets ./
-
+FROM nginxinc/nginx-unprivileged:stable-alpine
+# Todos os arquivos estáticos do repositório vão para a pasta pública do nginx:
+COPY . /usr/share/nginx/html
+# A imagem já expõe 8080; não precisa alterar. Traefik apontará para essa porta.
 

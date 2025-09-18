@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  ost:
+    build: .
+    container_name: ost-prod
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ost.rule=Host(`speed.grupogrowon.com.br`)
+      - traefik.http.routers.ost.entrypoints=websecure
+      - traefik.http.routers.ost.tls=true
+      - traefik.http.routers.ost.tls.certresolver=le
+      - traefik.http.services.ost.loadbalancer.server.port=8080
+    networks:
+      - web
+    restart: unless-stopped
+
+networks:
+  web:
+    external: true
+
+

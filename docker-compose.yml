@@ -12,6 +12,9 @@ services:
       - "traefik.http.routers.ost.tls.certresolver=le"
       - "traefik.http.services.ost.loadbalancer.server.port=8080"
       - "traefik.docker.network=web"
+      - "traefik.http.middlewares.ost-buf.buffering.maxRequestBodyBytes=40000000"
+      - "traefik.http.routers.ost.middlewares=ost-buf@docker"
+
     networks:
       - web
     restart: unless-stopped

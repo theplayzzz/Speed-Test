@@ -14,7 +14,7 @@ SpeedTest by OpenSpeedTest™ is a Free and Open-Source HTML5 Network Performanc
  <a target="_blank"  href="https://www.youtube.com/embed/9NIHAmVkomk?autoplay=1"><img src="https://open.cachefly.net/assets/images/videos/lanpad-yt.jpg"  alt="Video Tutorial by LanPad"  width="48%" style=""></a> 
 
 ##  Why OpenSpeedTest
-
+c
   
 
 ###  Secure by Design.
